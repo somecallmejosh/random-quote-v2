@@ -3,18 +3,18 @@ Project Requirements
 
 ## Create an array of JS objects to hold the data for the quotes.
 Each quote should have the following properties:
-- [ ] A `quote` property which contains a string: the text of the quote to display on the page.
-- [ ] A `source` property which contains a string identifying the creator of the quote.
-- [ ] An optional `citation` property which contains a string identifying the publication the quote appears in.
-- [ ] An optional `year` property which contains a number identifying the date of the quote.
+- [x] A `quote` property which contains a string: the text of the quote to display on the page.
+- [x] A `source` property which contains a string identifying the creator of the quote.
+- [x] An optional `citation` property which contains a string identifying the publication the quote appears in.
+- [x] An optional `year` property which contains a number identifying the date of the quote.
 
 ## Create a function named `getRandomQuote` which:
-- [ ] selects a random quote object from the quotes array
-- [ ] returns the randomly selected quote objects
+- [x] selects a random quote object from the quotes array
+- [x] returns the randomly selected quote objects
 
 ## Create a function names `printQuote` which follows these rules:
-- [ ] `printQuote` calls the `getRandomQuote` function and stores the returned quote object in a variable.
-- [ ] `printQuote` constructs a string using the different properties of the quote object using the following HTML template:
+- [x] `printQuote` calls the `getRandomQuote` function and stores the returned quote object in a variable.
+- [x] `printQuote` constructs a string using the different properties of the quote object using the following HTML template:
 
 ```
 <p class="quote"> [quote here] </p>
@@ -23,8 +23,8 @@ Each quote should have the following properties:
   <span class="year"> [year here] </span>
 </p>
 ```
-- [ ] `printQuote` doesn't add a `<span class="citation">` for a missing citation or a `<span class="year">` if the year property is missing.
-- [ ] `printQuote` displays the final HTML string to the page. You can use the following JS snippet to accomplish that: `document.getElementById('quote-box').innerHTML`
+- [x] `printQuote` doesn't add a `<span class="citation">` for a missing citation or a `<span class="year">` if the year property is missing.
+- [x] `printQuote` displays the final HTML string to the page. You can use the following JS snippet to accomplish that: `document.getElementById('quote-box').innerHTML`
 
 # Extra Credit
 
