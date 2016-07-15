@@ -76,7 +76,7 @@ function printQuote() {
   // Check to see if there's a year in the quote object
   // If it's there, concatenate it with the fillSource container
   if(quoteObject.year) {
-    fillSource += '<span class="citation">' + quoteObject.year + '</span>'
+    fillSource += '<span class="year">' + quoteObject.year + '</span>'
   }
   // Set the content of the concated sourceContainer items to the fillSource
   // container
