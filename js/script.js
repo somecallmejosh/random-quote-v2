@@ -26,6 +26,7 @@ var quotes = [
 ];
 
 // DOM Nodes
+var bodyContainer = document.querySelector('body');
 var quoteWrapper = document.getElementById('quote-box')
 var quoteContainer = document.querySelector('.quote');
 var sourceContainer = document.querySelector('.source');
@@ -38,8 +39,8 @@ function randomQuote() {
 }
 
 function printQuote() {
+  applyHex();
   var randomQuoteObject = randomQuote();
-  console.log(randomQuoteObject);
   var quoteObject = quotes[randomQuoteObject];
   quoteContainer.textContent = quoteObject.quote;
 
@@ -52,4 +53,12 @@ function printQuote() {
     fillSource += '<span class="citation">' + quoteObject.year + '</span>'
   }
   sourceContainer.innerHTML = fillSource;
+}
+
+function randomHex() {
+  return '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+}
+
+function applyHex() {
+  bodyContainer.style.backgroundColor = randomHex();
 }
