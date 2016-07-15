@@ -4,43 +4,49 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 
 var quotes = [
   {
-    "quote": "Here's the first quote",
-    "source": "Some Guy",
-    "citation": "The web",
-    "year": "1995",
+    "quote": "Music is a moral law. It gives soul to the universe, wings to the mind, flight to the imagination, and charm and gaiety to life and to everything.",
+    "source": "Plato",
+    "citation": "internet",
+    "year": "427BC - 327BC",
     "tags": ["poetry", "humor"]
   },
   {
-    "quote": "Here's the second quote",
-    "source": "Some Other Guy",
+    "quote": "One good thing about music, when it hits you, you feel no pain",
+    "source": "Bob Marley",
     "citation": "The web",
+    "year": "1945-1981",
     "tags": ["goth rantings"]
   },
   {
-    "quote": "Here's the third quote",
-    "source": "That Dude",
-    "year": "1995",
+    "quote": "Without music, life would be a mistake",
+    "source": "Friedrich Nietzche",
+    "citation": "The web",
+    "year": "1844-1900",
     "tags": ["amazing content"]
   },
   {
-    "quote": "Here's the fourth quote",
-    "source": "That One Chick",
+    "quote": "Music was my refuge. I could crawl into the space between the notes and curl my back to loneliness.",
+    "source": "Maya Angelou",
+    "citation": "The web",
+    "year": "1928-2014",
     "tags": ["pretentious dialogue"]
   },
   {
-    "quote": "Here's the fifth quote",
-    "source": "That Other One Chick",
+    "quote": "I was born with music inside me. Music was one of my parts. Like my ribs, my kidneys, my liver, my heart. Like my blood. It was a force already within me when I arrived on the scene. It was a necessity for me - like food or water.",
+    "source": "Ray Charles",
+    "citation": "The web",
+    "year": "1930-2004",
     "tags": ["forked tongue content"]
   },
   {
-    "quote": "Here's the sixth quote",
-    "source": "'lil dude from across the street",
-    "year": '1985',
-    "tags": ["pandering"]
+    "quote": "Music is everybody's possession. It's only publishers who think that people own it.",
+    "source": "John Lennon",
+    "citation": "The web",
+    "year": '1940-1980'
   }
 ];
 
-// cache DOM Nodes
+// cache DOM Containers
 var bodyContainer = document.querySelector('body');
 var quoteWrapper = document.getElementById('quote-box')
 var quoteContainer = document.querySelector('.quote');
@@ -48,48 +54,55 @@ var sourceContainer = document.querySelector('.source');
 var citationContainer = document.querySelector('.citation');
 var yearContainer = document.querySelector('.year');
 
+// Keep track of viewed quotes
+var viewedQuotes = [];
+
 function randomQuote() {
-  // Keep track of quotes
-  // This is currently a work in progress
-  var recentQuotes = [];
+  // Generate a random number that corresponds to the
+  // total number of quotes.
   var newQuote = Math.floor(Math.random() * (quotes.length));
-  return newQuote;
+  // splice the object from the quote array and store it in a variable.
+  var splicedQuote = quotes.splice(newQuote, 1)[0];
+  // Push the new quote to the viewedQuotes Array.
+  viewedQuotes.push(splicedQuote);
+
+  if(quotes.length === 0) {
+    // If all quotes have been spliced off, reset quotes to the newly created
+    // quotes array, and then reset viewedQuotes to an empty array
+    quotes = viewedQuotes;
+    viewedQuotes = [];
+  }
+  // return the newly spliced quote
+  return splicedQuote;
 }
 
 function printQuote() {
-  applyHex();
   // Store random quote number as a variable
   var randomQuoteObject = randomQuote();
-  // cache current quote object.
-  var quoteObject = quotes[randomQuoteObject];
-  // Set the quote text to the quoteContainer element.
-  quoteContainer.textContent = quoteObject.quote;
+  quoteContainer.textContent = randomQuoteObject.quote;
 
   // Start laying out the items that will fill in the .source element.
-  var fillSource = quoteObject.source;
+  var fillSource = randomQuoteObject.source;
 
   // Check to see if there's a citation in the quote object
   // If it's there, concatenate it with the fillSource container
-  if(quoteObject.citation) {
-    fillSource += '<span class="citation">' + quoteObject.citation + '</span>'
+  if(randomQuoteObject.citation) {
+    fillSource += '<span class="citation">' + randomQuoteObject.citation + '</span>'
   }
   // Check to see if there's a year in the quote object
   // If it's there, concatenate it with the fillSource container
-  if(quoteObject.year) {
-    fillSource += '<span class="year">' + quoteObject.year + '</span>'
+  if(randomQuoteObject.year) {
+    fillSource += '<span class="year">' + randomQuoteObject.year + '</span>'
   }
   // Set the content of the concated sourceContainer items to the fillSource
   // container
   sourceContainer.innerHTML = fillSource;
+  randomBgColor();
 }
 
-function randomHex() {
-  // Thank you Stack Overflow Community for helping with this
-  // random hex generator.
-  return '#'+(Math.random()*0xFFFFFF<<0).toString(16);
-}
-
-function applyHex() {
-  // Apply randomHex value as a background color to the body element.
-  bodyContainer.style.backgroundColor = randomHex();
+function randomBgColor() {
+  // Generate randomHex value
+  var randomHex = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+  // Apply random hex value to bgc.
+  bodyContainer.style.backgroundColor = randomHex;
 }
