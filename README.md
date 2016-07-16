@@ -30,5 +30,8 @@ Each quote should have the following properties:
 
 - [ ] Add more properties to the quote object. For example, a tags property could include a list of "tags" like -- "humor", "business", "politics" -- to categorize each quote.
 - [x] Randomly change the background color of the page, when the quote changes
-- [ ] Don't display a random quote more than once until ALL quotes from the array have been displayed.
+- [x] Don't display a random quote more than once until ALL quotes from the array have been displayed.
 - [ ] Refresh the quote after a set amount of time. For example, every 30 seconds, make a new quote appear. (You can use the setInterval() or setTimeout() method to do this -- see the links in the Project Resources listing.)
+
+# View Project
+[Live Demo](https://somecallmejosh.github.io/random-quote-v2/) of this project for peer review.
