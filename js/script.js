@@ -51,7 +51,7 @@ var quotes = [
 
 // cache DOM Containers
 var bodyContainer = document.querySelector('body');
-var quoteWrapper = document.getElementById('quote-box')
+var quoteWrapper = document.getElementById('quote-box');
 var quoteContainer = document.querySelector('.quote');
 var sourceContainer = document.querySelector('.source');
 var citationContainer = document.querySelector('.citation');
